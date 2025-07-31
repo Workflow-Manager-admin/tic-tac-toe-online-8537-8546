@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
+import { GameComponent } from './game/game.component';
 
+// PUBLIC_INTERFACE
 @Component({
   selector: 'app-root',
-  imports: [],
+  standalone: true,
+  imports: [GameComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'tic_tac_toe_frontend is being generated';
+  title = 'Tic Tac Toe';
 }

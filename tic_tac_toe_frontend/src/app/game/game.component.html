@@ -1,0 +1,29 @@
+<div class="game-root">
+  <div class="status" [ngClass]="{'win': winner(), 'tie': isTie()}">
+    <span>{{ status }}</span>
+  </div>
+  <div class="game-board">
+    <div
+      class="game-row"
+      *ngFor="let row of board(); let i = index"
+    >
+      <button
+        class="cell"
+        *ngFor="let cell of row; let j = index"
+        [disabled]="!isCellClickable(i, j)"
+        (click)="handleClick(i, j)"
+        [ngClass]="{
+          x: cell === 'X',
+          o: cell === 'O'
+        }"
+      >
+        <span *ngIf="cell">{{ cell }}</span>
+      </button>
+    </div>
+  </div>
+  <div class="bottom-controls">
+    <button class="reset-btn" type="button" (click)="resetGame()">
+      Reset
+    </button>
+  </div>
+</div>
